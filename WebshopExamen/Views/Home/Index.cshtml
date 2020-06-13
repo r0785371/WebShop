@@ -1,0 +1,36 @@
+﻿@*@model List<Model.User>;*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewData["Title"] = "Home Page Bikeshop";
+
+    var imageNr = "/images/bikes/Riese_" + ViewData["PictureNr"] + ".png";
+
+}
+
+<style>
+
+    .allign{
+        position:center;
+        
+    }
+    img{
+        width:700px;
+    }
+    h1{
+        text-align:center;
+        text-size-adjust:auto;
+    }
+
+</style>
+
+<h1>Bikeshop</h1>
+
+<div class="allign">
+    <a asp-area="" asp-controller="Product" asp-action="Index">
+    <img src="@imageNr" class="rounded mx-auto d-block" /></a>
+</div>
+    @*@foreach (var item in Model)
+        {
+            <p>@item.Name</p>
+        }*@

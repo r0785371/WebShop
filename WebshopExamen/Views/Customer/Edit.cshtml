@@ -1,0 +1,35 @@
+﻿@model Model.Customer
+@{
+    ViewData["Title"] = "Customer/Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Customer/Edit</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CustomerId" />
+            <div class="form-group">
+                <label asp-for="Firstname">@Html.DisplayNameFor(model => model.Firstname): </label>
+                <input type="text" class="form-control" asp-for="Firstname" placeholder="First name" required />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name">@Html.DisplayNameFor(model => model.Name): </label>
+                <input type="text" class="form-control" asp-for="Name" placeholder="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <button class="btn btn-primary" asp-controller="Customer" asp-action="Index">Back to list</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+

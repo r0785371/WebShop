@@ -1,0 +1,38 @@
+﻿
+@model List<Model.Customer>
+@{
+    ViewData["Title"] = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Customer</h1>
+
+<a asp-controller="Customer" asp-action="Create">Add new customer</a>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Firstname</td>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-controller="Customer" asp-action="Edit" asp-route-CustomerId="@item.CustomerId">Edit</a>
+                    <a asp-controller="Customer" asp-action="Remove" asp-route-CustomerId="@item.CustomerId">Delete</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

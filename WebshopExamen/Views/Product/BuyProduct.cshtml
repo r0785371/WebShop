@@ -1,0 +1,38 @@
+﻿@model Model.Product;
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "BuyProduct";
+    int quantity = 0;
+}
+
+<h1>BuyProduct</h1>
+
+<form>
+    <div class="form-row">
+        <div class="col">
+            <label asp-for="Name">@Html.DisplayNameFor(model =>model.Name):</label>
+            <input type="text" asp-for="Name" class="form-control" placeholder="BikeName" readonly>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="col">
+            <label asp-for="Price">@Html.DisplayNameFor(model => model.Price): </label>
+            <input type="text" asp-for="Price" class="form-control" placeholder="Price" readonly>
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col">
+            <label asp-for="@quantity">Quantity</label>
+            <input type="number" asp-for="@quantity" class="form-control" placeholder="Quantity"
+                   value="@quantity" name="quantity">
+            <span asp-validation-for="@quantity" class="text-danger"></span>
+        </div>
+
+    </div>
+    <div class="btn-group">
+        @*<a class="btn btn-sm btn-outline-secondary" asp-controller="ShoppingBag" asp-action="AddBasket" asp-route-ProductId="ProductId" asp-route-quantity="@quantity">Add Basket</a>*@
+        <a class="btn btn-sm btn-outline-secondary" asp-controller="Product" asp-action="AddBasket" asp-route-ProductId="ProductId" asp-route-quantity="@quantity">Add Basket</a>
+        <a class="btn btn-sm btn-outline-secondary" asp-controller="Product" asp-action="Index">Back to product</a>
+    </div>
+    
+</form>

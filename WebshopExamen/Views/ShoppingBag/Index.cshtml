@@ -1,0 +1,37 @@
+﻿@model List<Model.ShoppingBag>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ShoppingBag</h1>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th hidden></th>
+            <th scope="col">Customer</th>
+            <th scope="col">Date</th>
+            <th scope="col"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var shoppingBag in Model)
+        {
+            <tr>
+                <td hidden>@shoppingBag.ShoppingBagId</td>
+                <td>@shoppingBag.Customer.Firstname @shoppingBag.Customer.Name</td>
+                <td>@shoppingBag.Date.Day / @shoppingBag.Date.Month / @shoppingBag.Date.Year</td>
+                <td>
+                    <a asp-controller="ShoppingBag" asp-action="Edit" asp-route-shoppingBagId="@shoppingBag.ShoppingBagId">Edit</a>
+                   
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
